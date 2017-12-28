@@ -18,6 +18,33 @@ class ViewController: UIViewController {
 		createGesture()
 	}
 	
+	func renderImage() {
+		let render = UIGraphicsImageRenderer(size: view.bounds.size)
+		let image = render.image { goTo in
+			view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+		}
+		
+		UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.renderComplete), nil)
+	}
+	
+	@objc func renderComplete(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+		
+		if let error = error {
+			let alert = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+			present(alert, animated: true, completion: nil)
+		} else {
+			let alert = UIAlertController(title: "Photo Saved!", message: "Your image has been saved", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default))
+			present(alert, animated: true, completion: nil)
+		}
+		
+	}
+	
+	@IBAction func saveToPhotosTapGesture(_ sender: UITapGestureRecognizer) {
+		renderImage()
+	}
+	
 	//set Gestures
 	
 	func pinchGesture(imageView: UIImageView) -> UIPinchGestureRecognizer {

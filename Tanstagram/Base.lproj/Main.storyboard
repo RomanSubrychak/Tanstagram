@@ -38,16 +38,31 @@
                                 <rect key="frame" x="18" y="276" width="104" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" translatesAutoresizingMaskIntoConstraints="NO" id="Tdb-9Y-S1w">
-                                <rect key="frame" x="228" y="249" width="115" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smallTriangle2" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-q0-94e">
                                 <rect key="frame" x="130" y="276" width="69" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square" translatesAutoresizingMaskIntoConstraints="NO" id="Tdb-9Y-S1w">
+                                <rect key="frame" x="228" y="249" width="115" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="savePhotosButton" translatesAutoresizingMaskIntoConstraints="NO" id="PAi-JE-RLE">
+                                <rect key="frame" x="67" y="615" width="240" height="44"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dRX-gw-55T"/>
+                                    <constraint firstAttribute="width" constant="240" id="xhz-xi-az2"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="PFW-r0-VVG" appends="YES" id="N7z-3a-iY7"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PAi-JE-RLE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N5I-0C-iSF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PAi-JE-RLE" secondAttribute="bottom" constant="8" id="fiR-HG-JSs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -61,6 +76,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PFW-r0-VVG">
+                    <connections>
+                        <action selector="saveToPhotosTapGesture:" destination="BYZ-38-t0r" id="Ch6-Bw-RkP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
@@ -70,6 +90,7 @@
         <image name="bigTriangle2" width="331" height="166"/>
         <image name="midTriangle" width="165" height="165"/>
         <image name="parallelogram" width="246" height="83"/>
+        <image name="savePhotosButton" width="346" height="54"/>
         <image name="smallTriangle1" width="164" height="83"/>
         <image name="smallTriangle2" width="83" height="165"/>
         <image name="square" width="164" height="164"/>
